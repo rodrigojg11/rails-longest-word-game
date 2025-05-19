@@ -1,0 +1,20 @@
+<h1 class="mb-4">New Game</h1>
+
+<div class="d-flex flex-wrap mb-4">
+  <% @letters.each do |letter| %>
+    <span class="badge bg-primary fs-4 text-white text-center
+                d-flex align-items-center justify-content-center m-1"
+          style="width: 60px; height: 60px;">
+      <%= letter %>
+    </span>
+    <% end %>
+</div>
+<form action="score" method="post" data-turbo="false">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <div class="mb-3">
+    <label for="word">You can write any letter here:</label>
+    <input type="text" id="letter" placeholder="Type Here...">
+    <button type="submit" class="btn btn-primary">Play</button>
+  </div>
+</form>
